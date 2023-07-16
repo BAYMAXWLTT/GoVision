@@ -102,7 +102,7 @@ def make_gradcam_heatmap(img_array,
 
 def save_and_display_gradcam(img,
                              heatmap,
-                             cam_path="cam.jpg",
+                             cam_path="tmp_images/cam.jpg",
                              alpha=0.9,
                              save=False):
     # Load the original image

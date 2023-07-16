@@ -25,14 +25,6 @@ hub_module = hub.load("magenta_arbitrary-image-stylization-v1-256_2")
 
 print('Model loaded. Check http://127.0.0.1:3000/')
 
-# Model saved with Keras model.save()
-MODEL_PATH = 'models/your_model.h5'
-
-# Load your own trained model
-# model = load_model(MODEL_PATH)
-# model._make_predict_function()          # Necessary
-# print('Model loaded. Start serving...')
-
 
 # 风格迁移函数
 def style_transfer(content_image, style_image):
@@ -72,7 +64,7 @@ def transfer():
 
     # 将图像字节流编码为Base64字符串
     base64_image = base64.b64encode(buffer.getvalue()).decode('utf-8')
-    image.save("saved_image.jpg")
+    image.save("tmp_images/saved_image.jpg")
 
     # 返回Base64字符串作为响应
     return base64_image
