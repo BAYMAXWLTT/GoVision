@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>风格迁移</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .input-image {
+            margin-right: 20px;
+        }
+
+        .output-image {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-image">
+            <h3>内容图片</h3>
+            <input type="file" id="content-image" accept="image/*">
+            <img id="content-preview" src="#" alt="内容图片" width="300" height="200">
+        </div>
+        <div class="input-image">
+            <h3>风格图片</h3>
+            <input type="file" id="style-image" accept="image/*">
+            <img id="style-preview" src="#" alt="风格图片" width="300" height="200">
+        </div>
+        <div class="output-image">
+            <h3>输出图片</h3>
+            <img id="output-preview" src="#" alt="输出图片" width="600" height="400">
+        </div>
+    </div>
+
+    <script>
+        // 预览内容图片
+        const contentInput = document.getElementById('content-image');
+        const contentPreview = document.getElementById('content-preview');
+
+        contentInput.addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                contentPreview.src = e.target.result;
+            }
+
+            reader.readAsDataURL(file);
+        });
+
+        // 预览风格图片
+        const styleInput = document.getElementById('style-image');
+        const stylePreview = document.getElementById('style-preview');
+
+        styleInput.addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                stylePreview.src = e.target.result;
+            }
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+
+</html>
