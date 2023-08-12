@@ -7,5 +7,4 @@ classify:
 backend:
 	go run ./back
 
-activate:
-	conda activate DLWEB
+
