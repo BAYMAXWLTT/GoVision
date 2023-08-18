@@ -153,7 +153,7 @@ function predictImage(image) {
         resp.json().then(data => {
           displayResult(data);
         });
-      imageDisplayGradCam.src = "http://127.0.0.1:8000/gradcam?" + Date.now();
+      imageDisplayGradCam.src = "http://wlt.natapp1.cc/gradcam?" + Date.now();
       show(imageDisplayGradCam)
     })
     .catch(err => {

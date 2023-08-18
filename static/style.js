@@ -25,7 +25,7 @@ function SendImages(images) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                imageDisplayStyle.src = "http://127.0.0.1:8000/image?" + Date.now();
+                imageDisplayStyle.src = "http://wlt.natapp1.cc/image?" + Date.now();
                 show(imageDisplayStyle)
                 hide(loaderStyle)
             } else {

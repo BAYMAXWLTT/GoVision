@@ -1,6 +1,9 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+)
 
 type Application struct {
 	frontAddress, classificationAddress, styleAddress string
@@ -10,14 +13,17 @@ type Application struct {
 
 func NewApplication(frontAddress, classificationAddress, styleAddress string) *Application {
 	router := gin.Default()
+	config := cors.DefaultConfig()
+	config.AllowAllOrigins = true
+	router.Use(cors.New(config))
 	router.LoadHTMLGlob(`./templates/*.html`)
 	router.Static(`/static`, `./static`)
-
 	router.GET("/image", func(c *gin.Context) {
 		c.File("tmp_images/saved_image.jpg")
 	})
 
 	router.GET("/brand", func(c *gin.Context) {
+		c.Header("Access-Control-Allow-Origin", "*")
 		c.File("tmp_images/brand.jpg")
 	})
 
